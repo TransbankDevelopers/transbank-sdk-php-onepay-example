@@ -3,7 +3,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/continuum/transbank-onepay-sdk-php"
+            "url": "https://github.com/TransbankDevelopers/transbank-sdk-php"
         }
     ],
     "description": "The Laravel Framework.",
@@ -15,7 +15,7 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
-        "transbank-onepay-sdk-php": "dev-master"
+        "transbank-sdk": "dev-master"
     },
     "require-dev": {
         "filp/whoops": "^2.0",

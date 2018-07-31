@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "152d8f4792d4c23a5e581263ea97e704",
+    "content-hash": "6f252829f33576da017cee3b33f71ee0",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -455,16 +455,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.6.28",
+            "version": "v5.6.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "40ba2ee0e61cb4bc3c9f1dab04908e6acf06b86f"
+                "reference": "acc6b5c54ab196d3358f60acc5f55d9ebaaccc02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/40ba2ee0e61cb4bc3c9f1dab04908e6acf06b86f",
-                "reference": "40ba2ee0e61cb4bc3c9f1dab04908e6acf06b86f",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/acc6b5c54ab196d3358f60acc5f55d9ebaaccc02",
+                "reference": "acc6b5c54ab196d3358f60acc5f55d9ebaaccc02",
                 "shasum": ""
             },
             "require": {
@@ -590,7 +590,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-07-17T14:15:36+00:00"
+            "time": "2018-07-26T16:01:26+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -2240,17 +2240,17 @@
             "time": "2017-11-27T11:13:29+00:00"
         },
         {
-            "name": "transbank-onepay-sdk-php",
+            "name": "transbank-sdk",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:continuum/transbank-onepay-sdk-php.git",
-                "reference": "1e203b05ddaf8de77c8e1a21e095f4db5978bd71"
+                "url": "https://github.com/TransbankDevelopers/transbank-sdk-php.git",
+                "reference": "3c2a4cf20fe01f1dbf67795afcad97a92ecfbca4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/continuum/transbank-onepay-sdk-php/zipball/1e203b05ddaf8de77c8e1a21e095f4db5978bd71",
-                "reference": "1e203b05ddaf8de77c8e1a21e095f4db5978bd71",
+                "url": "https://api.github.com/repos/TransbankDevelopers/transbank-sdk-php/zipball/3c2a4cf20fe01f1dbf67795afcad97a92ecfbca4",
+                "reference": "3c2a4cf20fe01f1dbf67795afcad97a92ecfbca4",
                 "shasum": ""
             },
             "require": {
@@ -2267,17 +2267,16 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Transbank\\": [
+                    "Transbank\\Onepay\\": [
                         "lib/",
-                        "lib/utils",
-                        "lib/constants"
+                        "lib/utils"
                     ],
-                    "Transbank\\OnePay\\Exceptions\\": [
+                    "Transbank\\Onepay\\Exceptions\\": [
                         "lib/exceptions"
                     ]
                 }
             },
-            "description": "Transbank SDK for OnePay",
+            "description": "Transbank SDK",
             "keywords": [
                 "api",
                 "payments",
@@ -2285,23 +2284,23 @@
                 "transbank"
             ],
             "support": {
-                "source": "https://github.com/continuum/transbank-onepay-sdk-php/tree/master",
-                "issues": "https://github.com/continuum/transbank-onepay-sdk-php/issues"
+                "source": "https://github.com/TransbankDevelopers/transbank-sdk-php/tree/master",
+                "issues": "https://github.com/TransbankDevelopers/transbank-sdk-php/issues"
             },
-            "time": "2018-07-26T13:55:49+00:00"
+            "time": "2018-07-31T21:49:41+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v2.5.0",
+            "version": "v2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "6ae3e2e6494bb5e58c2decadafc3de7f1453f70a"
+                "reference": "8abb4f9aa89ddea9d52112c65bbe8d0125e2fa8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/6ae3e2e6494bb5e58c2decadafc3de7f1453f70a",
-                "reference": "6ae3e2e6494bb5e58c2decadafc3de7f1453f70a",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/8abb4f9aa89ddea9d52112c65bbe8d0125e2fa8e",
+                "reference": "8abb4f9aa89ddea9d52112c65bbe8d0125e2fa8e",
                 "shasum": ""
             },
             "require": {
@@ -2338,7 +2337,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2018-07-01T10:25:50+00:00"
+            "time": "2018-07-29T20:33:41+00:00"
         }
     ],
     "packages-dev": [
@@ -4039,7 +4038,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "transbank-onepay-sdk-php": 20
+        "transbank-sdk": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

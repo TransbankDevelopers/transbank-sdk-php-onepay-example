@@ -12,7 +12,7 @@
 <table>
     <tr>
         <td>OCC:</td>
-        <td>{{ $transactionCommitResponse["occ"] }} </td>
+        <td>{{ $transactionCommitResponse->getOcc() }} </td>
     </tr>
     <tr>
         <td>Número de carro:</td>
@@ -20,36 +20,36 @@
     </tr>
     <tr>
         <td>Código de autorización:</td>
-        <td> {{ $transactionCommitResponse["authorizationCode"] }}</td>
+        <td> {{ $transactionCommitResponse->getAuthorizationCode() }}</td>
     </tr>
     <tr>
         <td>Orden de compra:</td>
-        <td>{{ $transactionCommitResponse["buyOrder"]  }}</td>
+        <td>{{ $transactionCommitResponse->getBuyOrder() }}</td>
     </tr>
     <tr>
         <td>Descripción:</td>
-        <td> {{ $transactionCommitResponse["description"]}}</td>
+        <td> {{ $transactionCommitResponse->getDescription() }}</td>
     </tr>
     <tr>
         <td>Monto compra:</td>
-        <td>{{ $transactionCommitResponse["amount"] }}</td>
+        <td>{{ $transactionCommitResponse->getAmount() }}</td>
     </tr>
     <tr>
         <td>Numero de cuotas:</td>
-        <td>{{ $transactionCommitResponse["installmentsNumber"] }}</td>
+        <td>{{ $transactionCommitResponse->getInstallmentsNumber() }}</td>
     </tr>
     <tr>
         <td>Monto cuota:</td>
-        <td>{{ $transactionCommitResponse["installmentsAmount"]}}</td>
+        <td>{{ $transactionCommitResponse->getInstallmentsAmount() }}</td>
     </tr>
     <tr>
         <td>Fecha:</td>
-        <td> {{ $transactionCommitResponse["issuedAt"]}} </td>
+        <td> {{ $transactionCommitResponse->getIssuedAt() }} </td>
     </tr>
     <tr>
         <td>Anulación</td>
         <td>
-            <a href='/refund/?amount={{urlencode($transactionCommitResponse["amount"])}}&occ={{urlencode($transactionCommitResponse["occ"])}}&externalUniqueNumber={{urlencode($externalUniqueNumber)}}&authorizationCode={{urlencode($transactionCommitResponse["authorizationCode"])}}'
+            <a href='/refund/?amount={{urlencode($transactionCommitResponse->getAmount())}}&occ={{urlencode($transactionCommitResponse->getOcc())}}&externalUniqueNumber={{urlencode($externalUniqueNumber)}}&authorizationCode={{urlencode($transactionCommitResponse->getAuthorizationCode())}}'
                             >Anular esta compra</a>
         </td>
     </tr>
