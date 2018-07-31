@@ -1,8 +1,7 @@
-### Transbank OnePay PHP SDK example project
+### Transbank SDK for PHP example project
 
-
-The following is a simple ecommerce that uses the Transbank OnePay PHP SDK,
-showing examples of how to create a Transaction, Committing it (confirm it so it's actually paid) and reversing it (nulling it) using the OnePay PHP SDK.
+The following is a simple ecommerce that uses the Transbank SDK for PHP,
+showing examples of how to create a Transaction, Committing it (confirm it so it's actually paid) and reversing it (nulling it) using Onepay.
 
 To run this project you need to have Docker and `docker-compose` installed on your machine.
 
