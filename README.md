@@ -26,7 +26,7 @@ la cual esta en
 REPO_ROOT/app/Http/Controllers/Transaction.php
 `
 
-Asimísmo, es posible ver la utilización del SDK de JavaScript en el archivo 
+Asimismo, es posible ver la utilización del SDK de JavaScript en el archivo 
 `
 REPO_ROOT/public/js/use-onepay.js
 `
