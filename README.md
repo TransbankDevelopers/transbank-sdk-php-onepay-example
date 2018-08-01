@@ -1,8 +1,8 @@
-### Proyecto de ejemplo para Transbank SDK PHP
+### Proyecto de ejemplo para uso de Onepay con el SDK de Transbank para PHP
 
-El siguiente proyecto es un simple ecommerce el cual utiliza el SDK de Transbank para PHP, 
-mostrando ejemplos de como crear una transacción (_Transaction_::create), como confirmarla
-(_Transaction_::commit) y como anularla (_Refund_::create), utilizando Onepay.
+El siguiente proyecto es un simple ecommerce el cual utiliza Onepay a través del
+SDK de Transbank para PHP,  mostrando ejemplos de como crear una transacción (_Transaction_::create), como confirmarla
+(_Transaction_::commit) y como anularla (_Refund_::create)
 
 Para ejecutar el proyecto es necesario tener ```docker``` y ```docker-compose```
 
@@ -24,6 +24,11 @@ Es posible ver las operaciones del SDK implementadas en la clase TransactionCont
 la cual esta en 
 `
 REPO_ROOT/app/Http/Controllers/Transaction.php
+`
+
+Asimismo, es posible ver la utilización del SDK de JavaScript en el archivo 
+`
+REPO_ROOT/public/js/use-onepay.js
 `
 
 El proyecto incluye, en su raíz, un archivo .env con valores de prueba para ONEPAY_SHARED_SECRET y ONEPAY_API_KEY, los cuales son útiles para poder hacer pruebas.
