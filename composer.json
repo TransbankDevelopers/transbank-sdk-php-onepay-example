@@ -1,11 +1,5 @@
 {
     "name": "laravel/laravel",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/TransbankDevelopers/transbank-sdk-php"
-        }
-    ],
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
@@ -15,7 +9,7 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
-        "transbank-sdk": "dev-master#1.0.0-pre"
+        "transbank/transbank-sdk": "1.0.1"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
