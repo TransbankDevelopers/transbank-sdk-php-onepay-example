@@ -1,13 +1,3 @@
-<?php
-define('__ROOT__', dirname(__FILE__));
-#require_once(__ROOT__ . '/ewallet-endpoints/config.php');
-define('SERVER_BASE_PATH', 'http://localhost:8000'); // Url base de comercio de prueba
-define('SCRIPT_PATH', 'http://localhost:8000/js/onepay.js'); // Url absoluta de plugin JS
-define('API_KEY', 'mUc0GxYGor6X8u-_oB3e-HWJulRG01WoC96-_tUA3Bg');
-define('SHARED_SECRET', 'P4DCPS55QB2QLT56SQH6#W#LV76IAPYX');
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -510,134 +500,19 @@ define('SHARED_SECRET', 'P4DCPS55QB2QLT56SQH6#W#LV76IAPYX');
         <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
         <!--===============================================================================================-->
         <script src="vendor/select2/select2.min.js"></script>
-        <script>
-            $(".js-select2").each(function () {
-                $(this).select2({
-                    minimumResultsForSearch: 20,
-                    dropdownParent: $(this).next('.dropDownSelect2')
-                });
-            })
-        </script>
         <!--===============================================================================================-->
         <script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
         <!--===============================================================================================-->
         <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-        <script>
-            $('.js-pscroll').each(function () {
-                $(this).css('position', 'relative');
-                $(this).css('overflow', 'hidden');
-                var ps = new PerfectScrollbar(this, {
-                    wheelSpeed: 1,
-                    scrollingThreshold: 1000,
-                    wheelPropagation: false,
-                });
-                $(window).on('resize', function () {
-                    ps.update();
-                })
-            });
-        </script>
         <!--===============================================================================================-->
 
         <script src="js/bundle.js"></script>
         <script src="js/main.js"></script>
         <script src="js/slick-custom.js"></script>
-
+        <script src="js/onepay-sdk.js"></script>
         <script src="js/use-onepay.js"></script>
         <div>
             <input type="hidden" id="ewallet-pay-data" data='{"items":[{"amount":"36000","quantity":"1","description":"Fresh Strawberries"},{"amount":"16000","quantity":"1","description":"Lightweight Jacket"}]}' />
         </div>
-        <script type="text/javascript">
-            var onepay = null;
-            var serverBasePath = '<?php echo SERVER_BASE_PATH ?>';
-            var scriptPath = '<?php echo SCRIPT_PATH ?>';
-            // (function(o,n,e,p,a,y){
-            //     e.OnepayObject=a;if(n.getElementById(p)){return}var s=n.createElement(e);
-            //     s.id=p;s.async=true;s.src=scriptPath;
-            //     var e=n.getElementsByTagName(e)[0];e.parentNode.insertBefore(s,e);
-            //     if (s.readyState){s.onreadystatechange=function(){if (s.readyState==="loaded"
-            //         || s.readyState==="complete"){s.onreadystatechange = null;y();}};}
-            //     else{s.onload=function(){y();};}
-            //})
-            (window,document,"script","onepay-js","onepay",function(){
-                onepay = new Onepay({
-                    apiKey: '<?php echo API_KEY ?>',
-                    endpoint: serverBasePath + '/api/transaction',
-                    commerceLogo: 'commerce_logo.png',
-                    callbackUrl: serverBasePath + '/ewallet-endpoints/endPayment.php'
-                });
-            });
-        </script>
-
-
-
-
-
-
-
-
-        <script>
-
-(function(o,n,e,p,a,y) {var s = n.createElement(p);s.type = "text/javascript";s.
-    src = e;s.onload = s.onreadystatechange = function() {if (!o && (!s.readyState
-        || s.readyState === "loaded")) {y();}};var t = n.getElementsByTagName("script")[0];
-    p = t.parentNode;p.insertBefore(s, t);})(false, document, "./js/onepay-sdk.js", "script",
-    window, function() {
-        console.log("onepay js lib sucess loaded");
-    });
-
-function showLoadingImage() {
-    let html = document.getElementById("qr");
-    html.innerHTML = "";
-    let loading = new Image(200, 200);
-    loading.src = "./images/loading.gif";
-    html.appendChild(loading);
-}
-
-function transactionCreate() {
-    showLoadingImage();
-
-    $.ajax({
-        type: "POST",
-        url: "/api/transaction",
-        async: true,
-        success: function(data) {
-            // convert json to object
-            let transaction = JSON.parse(data);
-            transaction["paymentStatusHandler"] = {
-                ottAssigned: function () {
-                    // callback transaccion asinada
-                    console.log("Transacción asignada.");
-                    showLoadingImage();
-                },
-                authorized: function (occ, externalUniqueNumber) {
-                    // callback transacción autorizada
-                    console.log("occ : " + occ);
-                    console.log("externalUniqueNumber : " + externalUniqueNumber);
-
-                    let params = {
-                        occ: occ,
-                        externalUniqueNumber: externalUniqueNumber
-                    };
-
-                    let httpUtil = new HttpUtil();
-                    httpUtil.sendPostRedirect("./commit", params);
-                }
-            };
-
-            let onepay = new Onepay(transaction);
-            onepay.drawQrImage("qr");
-        },
-        error: function (data) {
-            console.log("something is going wrong");
-        }
-    });
-}
-
-        </script>
     </body>
-
-
-
-
-
 </html>
