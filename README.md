@@ -26,5 +26,7 @@ la cual esta en
 REPO_ROOT/app/Http/Controllers/Transaction.php
 `
 
+El proyecto incluye, en su raíz, un archivo .env con valores de prueba para ONEPAY_SHARED_SECRET y ONEPAY_API_KEY, los cuales son útiles para poder hacer pruebas.
+
 Este proyecto está hecho en PHP 7.2 utilizando Laravel 5.6
 
