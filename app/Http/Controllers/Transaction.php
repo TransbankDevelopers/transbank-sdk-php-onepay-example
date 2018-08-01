@@ -23,6 +23,8 @@ class TransactionController extends Controller
        # If OnepayBase::setApiKey() and/or Onepay::setSharedSecret()
        # haven't been called, the SDK will take the values from the
        # ONEPAY_API_KEY and ONEPAY_SHARED_SECRET environment variables
+       # In this project, these variables are set with demo keys in
+       #the .env file on the projects root directory
 
        $transactionCreateResponse = Transaction::create($shoppingCart);
        return json_encode($transactionCreateResponse);
