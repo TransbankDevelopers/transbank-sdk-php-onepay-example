@@ -1,26 +1,30 @@
-### Transbank SDK for PHP example project
+### Proyecto de ejemplo para Transbank SDK PHP
 
-The following is a simple ecommerce that uses the Transbank SDK for PHP,
-showing examples of how to create a Transaction, Committing it (confirm it so it's actually paid) and reversing it (nulling it) using Onepay.
+El siguiente proyecto es un simple ecommerce el cual utiliza el SDK de Transbank para PHP, 
+mostrando ejemplos de como crear una transacción (_Transaction_::create), como confirmarla
+(_Transaction_::commit) y como anularla (_Refund_::create), utilizando Onepay.
 
-To run this project you need to have Docker and `docker-compose` installed on your machine.
+Para ejecutar el proyecto es necesario tener ```docker``` y ```docker-compose```
 
-You can then run:
+Teniendo eso, puedes ejecutar en la raíz del proyecto:
+
 ```bash
 docker-compose run web composer install
 ```
-to install dependencies
-Then, to run the project:
+para instalar las dependencias.
 
+Luego, para ejecutar el proyecto:
 ```
 docker-compose run --service-ports web php artisan serve --host=0.0.0.0 --port=8000
 ```
+También puedes simplemente ejecutar el archivo `run.sh` en la raíz del proyecto
 
-You can see all the implemented SDK operations on the TransactionController on
+
+Es posible ver las operaciones del SDK implementadas en la clase TransactionController,
+la cual esta en 
 `
 REPO_ROOT/app/Http/Controllers/Transaction.php
 `
 
-or you can simply run the `run.sh` file in the root directory of the project.
+Este proyecto está hecho en PHP 7.2 utilizando Laravel 5.6
 
-This project is made in PHP 7.2 using Laravel 5.6.
