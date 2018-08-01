@@ -15,7 +15,7 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
-        "transbank-sdk": "dev-master"
+        "transbank-sdk": "dev-master#pre-1.0.0"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
