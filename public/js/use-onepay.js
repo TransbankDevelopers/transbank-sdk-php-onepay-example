@@ -30,7 +30,6 @@ function transactionCreate() {
                         occ: occ,
                         externalUniqueNumber: externalUniqueNumber
                     };
-
                     let httpUtil = new HttpUtil();
                     httpUtil.sendPostRedirect("./commit", params);
                 }
