@@ -10,6 +10,7 @@ use Transbank\Onepay\Item;
 use Transbank\Onepay\Transaction;
 use Transbank\Onepay\Options;
 use Transbank\Onepay\Refund;
+use Transbank\OnePay\Exceptions\RefundCreateException;
 
 class TransactionController extends Controller
 {
@@ -61,8 +62,12 @@ class TransactionController extends Controller
         $externalUniqueNumber = $request->query('externalUniqueNumber');
         $authorizationCode = $request->query('authorizationCode');
 
-        $refundResponse = Refund::create($amount, $occ, $externalUniqueNumber,
-                                        $authorizationCode, $options);
+        try {
+            $refundResponse = Refund::create($amount, $occ, $externalUniqueNumber,
+                                             $authorizationCode, $options);
+        } catch(RefundCreateException $e) {
+            return $e->getMessage();
+        }
 
         return view('refund', ["refundResponse" => $refundResponse]);
     }
