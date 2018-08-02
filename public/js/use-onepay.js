@@ -28,8 +28,7 @@ function transactionCreate() {
                         occ: occ,
                         externalUniqueNumber: externalUniqueNumber
                     };
-                    let httpUtil = new HttpUtil();
-                    httpUtil.sendPostRedirect("/commit", params);
+                    sendPostRedirect("/commit", params);
                 },
                 canceled: function () {
                     // callback rejected by user
@@ -53,3 +52,27 @@ function transactionCreate() {
         }
     });
 }
+
+function sendPostRedirect (destination, params) {
+    let form = document.createElement("form");
+    form.method = "POST";
+    form.action = destination;
+
+    Object.keys(params).forEach(function (key) {
+        let param = document.createElement("input");
+        param.type = "hidden";
+        param.name = key;
+        param.value = params[key];
+        form.appendChild(param);
+    });
+
+    let submit = document.createElement("input");
+    submit.type = "submit";
+    submit.name = "submitButton";
+    submit.style.display = "none";
+
+    form.appendChild(submit);
+    document.body.appendChild(form);
+    form.submit();
+};
+
