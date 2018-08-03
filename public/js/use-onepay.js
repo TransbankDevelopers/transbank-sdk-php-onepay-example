@@ -1,7 +1,7 @@
 function showLoadingImage() {
-    let html = document.getElementById("qr");
+    var html = document.getElementById("qr");
     html.innerHTML = "";
-    let loading = new Image(200, 200);
+    var loading = new Image(200, 200);
     loading.src = "./images/loading.gif";
     html.appendChild(loading);
 }
@@ -13,7 +13,7 @@ function transactionCreate() {
         async: true,
         success: function(data) {
             // convert json to object
-            let transaction = JSON.parse(data);
+            var transaction = JSON.parse(data);
             transaction["paymentStatusHandler"] = {
                 ottAssigned: function () {
                     // callback transacción asinada
@@ -24,7 +24,7 @@ function transactionCreate() {
                     // callback transacción autorizada
                     console.log("occ : " + occ);
                     console.log("externalUniqueNumber : " + externalUniqueNumber);
-                    let params = {
+                    var params = {
                         occ: occ,
                         externalUniqueNumber: externalUniqueNumber
                     };
@@ -44,7 +44,7 @@ function transactionCreate() {
                     console.log("estado desconocido");
                 }
             };
-            let onepay = new Onepay(transaction);
+            var onepay = new Onepay(transaction);
             onepay.drawQrImage("qr");
         },
         error: function (data) {
@@ -54,19 +54,19 @@ function transactionCreate() {
 }
 
 function sendPostRedirect (destination, params) {
-    let form = document.createElement("form");
+    var form = document.createElement("form");
     form.method = "POST";
     form.action = destination;
 
     Object.keys(params).forEach(function (key) {
-        let param = document.createElement("input");
+        var param = document.createElement("input");
         param.type = "hidden";
         param.name = key;
         param.value = params[key];
         form.appendChild(param);
     });
 
-    let submit = document.createElement("input");
+    var submit = document.createElement("input");
     submit.type = "submit";
     submit.name = "submitButton";
     submit.style.display = "none";
