@@ -1,4 +1,4 @@
-### Proyecto de ejemplo para uso de Onepay con el SDK de Transbank para PHP
+# Proyecto de ejemplo para uso de Onepay con el SDK de Transbank para PHP
 
 El siguiente proyecto es un simple ecommerce el cual utiliza Onepay a través del
 SDK de Transbank para PHP,  mostrando ejemplos de como crear una transacción (_Transaction_::create), como confirmarla
