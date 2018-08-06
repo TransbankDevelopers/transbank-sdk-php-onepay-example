@@ -19,7 +19,7 @@ para instalar las dependencias, y
 ```
 docker-compose run --service-ports web php artisan serve --host=0.0.0.0 --port=8000
 ```
-También puedes simplemente ejecutar el archivo `run.sh` en la raíz del proyecto
+También puedes iniciar el proyecto simplemente ejecutandp el archivo `run.sh` en la raíz del proyecto
 
 En ambos casos el proyecto se ejecutará en `localhost:8000` (y fallará en caso de que el puerto 8000 no esté disponible)
 
