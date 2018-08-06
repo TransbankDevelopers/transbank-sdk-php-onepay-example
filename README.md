@@ -21,7 +21,7 @@ docker-compose run --service-ports web php artisan serve --host=0.0.0.0 --port=8
 ```
 También puedes iniciar el proyecto simplemente ejecutandp el archivo `run.sh` en la raíz del proyecto
 
-En ambos casos el proyecto se ejecutará en `localhost:8000` (y fallará en caso de que el puerto 8000 no esté disponible)
+En ambos casos el proyecto se ejecutará en http://localhost:8000 (y fallará en caso de que el puerto 8000 no esté disponible)
 
 Es posible ver las operaciones del SDK implementadas en la clase TransactionController,
 la cual esta en 
