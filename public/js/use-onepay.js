@@ -1,10 +1,39 @@
 function showLoadingImage() {
-    let html = document.getElementById("qr");
+    var html = document.getElementById("qr");
     html.innerHTML = "";
-    let loading = new Image(200, 200);
+    var loading = new Image(200, 200);
     loading.src = "./images/loading.gif";
     html.appendChild(loading);
 }
+
+function sendPostRedirect(destination, params) {
+    console.log("sendpost redirect")
+    var form = document.createElement('form');
+
+    form.method = 'POST';
+    form.action = destination;
+
+    Object.keys(params).forEach(function (key) {
+        var  param = document.createElement('input');
+
+        param.type = 'hidden';
+        param.name = key;
+        param.value = params[key];
+        form.appendChild(param);
+    });
+
+    var submit = document.createElement('input');
+
+    submit.type = 'submit';
+    submit.name = 'submitButton';
+    submit.style.display = 'none';
+
+    form.appendChild(submit);
+    document.body.appendChild(form);
+    form.submit();
+};
+
+
 function transactionCreate() {
     showLoadingImage();
     $.ajax({
@@ -13,7 +42,7 @@ function transactionCreate() {
         async: true,
         success: function(data) {
             // convert json to object
-            let transaction = JSON.parse(data);
+            var transaction = JSON.parse(data);
             transaction["paymentStatusHandler"] = {
                 ottAssigned: function () {
                     // callback transacción asinada
@@ -24,12 +53,11 @@ function transactionCreate() {
                     // callback transacción autorizada
                     console.log("occ : " + occ);
                     console.log("externalUniqueNumber : " + externalUniqueNumber);
-                    let params = {
+                    var params = {
                         occ: occ,
                         externalUniqueNumber: externalUniqueNumber
                     };
-                    let httpUtil = new HttpUtil();
-                    httpUtil.sendPostRedirect("/commit", params);
+                    sendPostRedirect("/commit", params);
                 },
                 canceled: function () {
                     // callback rejected by user
@@ -45,7 +73,7 @@ function transactionCreate() {
                     console.log("estado desconocido");
                 }
             };
-            let onepay = new Onepay(transaction);
+            var onepay = new Onepay(transaction);
             onepay.drawQrImage("qr");
         },
         error: function (data) {
@@ -53,3 +81,4 @@ function transactionCreate() {
         }
     });
 }
+
