@@ -513,7 +513,7 @@
 <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <!--===============================================================================================-->
 <script src="js/main.js"></script>
-<script src="js/onepay.min.js"></script>
+<script src="https://cdn.rawgit.com/TransbankDevelopers/transbank-sdk-js-onepay/77593352/lib/onepay.min.js"></script>
 <script src="js/use-onepay.js"></script>
 
 <div>

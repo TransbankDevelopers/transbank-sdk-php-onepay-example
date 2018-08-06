@@ -5,35 +5,6 @@ function showLoadingImage() {
     loading.src = "./images/loading.gif";
     html.appendChild(loading);
 }
-
-function sendPostRedirect(destination, params) {
-    console.log("sendpost redirect")
-    var form = document.createElement('form');
-
-    form.method = 'POST';
-    form.action = destination;
-
-    Object.keys(params).forEach(function (key) {
-        var  param = document.createElement('input');
-
-        param.type = 'hidden';
-        param.name = key;
-        param.value = params[key];
-        form.appendChild(param);
-    });
-
-    var submit = document.createElement('input');
-
-    submit.type = 'submit';
-    submit.name = 'submitButton';
-    submit.style.display = 'none';
-
-    form.appendChild(submit);
-    document.body.appendChild(form);
-    form.submit();
-};
-
-
 function transactionCreate() {
     showLoadingImage();
     $.ajax({
@@ -81,4 +52,27 @@ function transactionCreate() {
         }
     });
 }
+
+function sendPostRedirect (destination, params) {
+    var form = document.createElement("form");
+    form.method = "POST";
+    form.action = destination;
+
+    Object.keys(params).forEach(function (key) {
+        var param = document.createElement("input");
+        param.type = "hidden";
+        param.name = key;
+        param.value = params[key];
+        form.appendChild(param);
+    });
+
+    var submit = document.createElement("input");
+    submit.type = "submit";
+    submit.name = "submitButton";
+    submit.style.display = "none";
+
+    form.appendChild(submit);
+    document.body.appendChild(form);
+    form.submit();
+};
 
