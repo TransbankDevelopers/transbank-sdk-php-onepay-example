@@ -8,7 +8,7 @@ SDK de Transbank para PHP,  mostrando ejemplos de como crear una transacción (_
 Para ejecutar el proyecto es necesario tener: 
  ```docker``` y ```docker-compose``` ([como instalar Docker](https://docs.docker.com/install/))
 
-#### Ejecutar ejemplo
+### Ejecutar ejemplo
 Con el código fuente del proyecto en tu computador, puedes ejecutar en la raíz del proyecto:
 
 ```bash
