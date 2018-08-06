@@ -4,11 +4,11 @@ El siguiente proyecto es un simple ecommerce el cual utiliza Onepay a través de
 SDK de Transbank para PHP,  mostrando ejemplos de como crear una transacción (_Transaction_::create), como confirmarla
 (_Transaction_::commit) y como anularla (_Refund_::create)
 
-### Requerimientos
+## Requerimientos
 Para ejecutar el proyecto es necesario tener: 
  ```docker``` y ```docker-compose``` ([como instalar Docker](https://docs.docker.com/install/))
 
-### Ejecutar ejemplo
+## Ejecutar ejemplo
 Con el código fuente del proyecto en tu computador, puedes ejecutar en la raíz del proyecto:
 
 ```bash
