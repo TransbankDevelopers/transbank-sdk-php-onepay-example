@@ -9,13 +9,15 @@ Para ejecutar el proyecto es necesario tener:
  ```docker``` y ```docker-compose``` ([como instalar Docker](https://docs.docker.com/install/))
 
 ## Ejecutar ejemplo
-Con el código fuente del proyecto en tu computador, puedes ejecutar en la raíz del proyecto:
-
+Con el código fuente del proyecto en tu computador, puedes ejecutar en la raíz del proyecto el comando para construir el contenedor docker, si es la primera vez que ejecutas el projecto:
+```bash
+docker-compose build
+```
+Luego, es necesario instalar las dependencias:
 ```bash
 docker-compose run web composer install
 ```
-para instalar las dependencias, y
-
+Finalmente, para correr el projecto de ejemplo:
 ```
 docker-compose run --service-ports web php artisan serve --host=0.0.0.0 --port=8000
 ```
