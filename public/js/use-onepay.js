@@ -5,7 +5,8 @@ function showLoadingImage() {
     loading.src = "./images/loading.gif";
     html.appendChild(loading);
 }
-function transactionCreate() {
+
+function doQrDirecto() {
     showLoadingImage();
     $.ajax({
         type: "POST",
@@ -28,7 +29,7 @@ function transactionCreate() {
                         occ: occ,
                         externalUniqueNumber: externalUniqueNumber
                     };
-                    sendPostRedirect("/commit", params);
+                    sendGetRedirect("/commit", params);
                 },
                 canceled: function () {
                     // callback rejected by user
@@ -53,26 +54,21 @@ function transactionCreate() {
     });
 }
 
-function sendPostRedirect (destination, params) {
-    var form = document.createElement("form");
-    form.method = "POST";
-    form.action = destination;
+function sendGetRedirect (destination, params) {
+    let keys = Object.keys(params);
+    let urlParams = keys.map(function (param) {
+        return encodeURIComponent(param) + '=' + encodeURIComponent(params[param]);
+    }).join('&');
+    window.location = destination + '?' + urlParams;
+}
 
-    Object.keys(params).forEach(function (key) {
-        var param = document.createElement("input");
-        param.type = "hidden";
-        param.name = key;
-        param.value = params[key];
-        form.appendChild(param);
-    });
+function doCheckout() {
+    var options = {
+        endpoint: '/api/transaction',
+        commerceLogo: 'https://cdn.rawgit.com/TransbankDevelopers/transbank-sdk-php-onepay-example/014ea5c2/public/images/icons/logo-01.png',
+        callbackUrl: '/commit'
+    };
 
-    var submit = document.createElement("input");
-    submit.type = "submit";
-    submit.name = "submitButton";
-    submit.style.display = "none";
-
-    form.appendChild(submit);
-    document.body.appendChild(form);
-    form.submit();
-};
+    Onepay.checkout(options);
+}
 
