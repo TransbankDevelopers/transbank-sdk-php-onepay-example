@@ -15,5 +15,5 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::post('/commit', 'TransactionController@commit');
+Route::get('/commit', 'TransactionController@commit');
 Route::get('/refund', 'TransactionController@refund');

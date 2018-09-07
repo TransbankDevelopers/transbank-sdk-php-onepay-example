@@ -361,8 +361,12 @@
                     </div>
                     <div class="size-209 p-t-1">
                     </div>
-                    <div onclick="transactionCreate()" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                        <img src="images/icons/logo_onepay_white.png"> &nbsp; Pagar con OnePay
+                    <div onclick="doQrDirecto()" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+                        <img src="images/icons/logo_onepay_white.png"> &nbsp; QR directo
+                    </div>
+                    <br/>
+                    <div onclick="doCheckout()" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+                        <img src="images/icons/logo_onepay_white.png"> &nbsp; Checkout
                     </div>
                 </div>
             </div>
@@ -513,7 +517,7 @@
 <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <!--===============================================================================================-->
 <script src="js/main.js"></script>
-<script src="https://cdn.rawgit.com/TransbankDevelopers/transbank-sdk-js-onepay/v1.4.1/lib/onepay.min.js"></script>
+<script src="https://cdn.rawgit.com/TransbankDevelopers/transbank-sdk-js-onepay/v1.5.0/lib/merchant.onepay.min.js"></script>
 <script src="js/use-onepay.js"></script>
 
 <div>

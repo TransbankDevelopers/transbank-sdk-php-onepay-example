@@ -28,13 +28,29 @@ class TransactionController extends Controller
        #the .env file on the projects root directory
 
        $transactionCreateResponse = Transaction::create($shoppingCart);
-       return json_encode($transactionCreateResponse);
+
+       $response = array();
+       $response["occ"] = $transactionCreateResponse->getOcc();
+       $response["ott"] = $transactionCreateResponse->getOtt();
+       $response["externalUniqueNumber"] = $transactionCreateResponse->getExternalUniqueNumber();
+       $response["qrCodeAsBase64"] = $transactionCreateResponse->getQrCodeAsBase64();
+       $response["issuedAt"] = $transactionCreateResponse->getIssuedAt();
+       $response["amount"] = $shoppingCart->getTotal();
+
+       return json_encode($response);
     }
 
     public function commit(Request $request)
     {
+        $status = $request->input("status");
         $occ = $request->input("occ");
         $externalUniqueNumber = $request->input("externalUniqueNumber");
+
+        if (empty($status) || strcasecmp($status,"PRE_AUTHORIZED") != 0) {
+            return view('commit-error', ["occ" => $occ,
+                "externalUniqueNumber" => $externalUniqueNumber,
+                "status" => $status]);
+        }
 
         # You can also set the ApiKey & sharedSecret to use on OnepayBase
         OnepayBase::setSharedSecret(env("ONEPAY_SHARED_SECRET"));
