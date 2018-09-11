@@ -17,7 +17,6 @@ class TransactionController extends Controller
 
     public function sendTransaction(Request $request)
     {
-       OnepayBase::setCurrentIntegrationType("TEST");
        $jsonData = json_decode('{"items":[{"amount":36000,"quantity": 1,"description":"Fresh Strawberries"},{"amount":16000,"quantity":1,"description":"Lightweight Jacket"}]}', true);
        $shoppingCart = ShoppingCart::fromJSON($jsonData);
 
@@ -46,15 +45,11 @@ class TransactionController extends Controller
         $occ = $request->input("occ");
         $externalUniqueNumber = $request->input("externalUniqueNumber");
 
-        if (empty($status) || strcasecmp($status,"PRE_AUTHORIZED") != 0) {
+        if (!empty($status) && strcasecmp($status,"PRE_AUTHORIZED") != 0) {
             return view('commit-error', ["occ" => $occ,
                 "externalUniqueNumber" => $externalUniqueNumber,
                 "status" => $status]);
         }
-
-        # You can also set the ApiKey & sharedSecret to use on OnepayBase
-        OnepayBase::setSharedSecret(env("ONEPAY_SHARED_SECRET"));
-        OnepayBase::setApiKey(env("ONEPAY_API_KEY"));
 
         $transactionCommitResponse = Transaction::commit($occ, $externalUniqueNumber);
 
@@ -64,15 +59,6 @@ class TransactionController extends Controller
 
     public function refund(Request $request)
     {
-
-
-       # Additionally you can use the Options object to override your
-       # ONEPAY_API_KEY and ONEPAY_SHARED_SECRET. In this example we have used
-       # the same values
-       $options = new Options(
-        env("ONEPAY_API_KEY"),
-        env("ONEPAY_SHARED_SECRET")
-      );
         $amount = $request->query('amount');
         $occ = $request->query('occ');
         $externalUniqueNumber = $request->query('externalUniqueNumber');
@@ -80,7 +66,7 @@ class TransactionController extends Controller
 
         try {
             $refundResponse = Refund::create($amount, $occ, $externalUniqueNumber,
-                                             $authorizationCode, $options);
+                                             $authorizationCode);
         } catch(RefundCreateException $e) {
             return $e->getMessage();
         }
