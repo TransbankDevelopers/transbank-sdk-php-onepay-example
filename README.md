@@ -9,7 +9,7 @@ Para ejecutar el proyecto es necesario tener:
  ```docker``` y ```docker-compose``` ([como instalar Docker](https://docs.docker.com/install/))
 
 ## Ejecutar ejemplo
-Con el código fuente del proyecto en tu computador, puedes ejecutar en la raíz del proyecto el comando para construir el contenedor docker, si es la primera vez que ejecutas el projecto:
+Con el código fuente del proyecto en tu computador, puedes ejecutar en la raíz del proyecto el comando para construir el contenedor docker, si es la primera vez que ejecutas el proyecto:
 ```bash
 docker-compose build
 ```
@@ -17,7 +17,7 @@ Luego, es necesario instalar las dependencias:
 ```bash
 docker-compose run web composer install
 ```
-Finalmente, para correr el projecto de ejemplo:
+Finalmente, para correr el proyecto de ejemplo:
 ```
 docker-compose run --service-ports web php artisan serve --host=0.0.0.0 --port=8000
 ```
@@ -26,15 +26,9 @@ También puedes iniciar el proyecto simplemente ejecutando el archivo `run.sh` e
 En ambos casos el proyecto se ejecutará en http://localhost:8000 (y fallará en caso de que el puerto 8000 no esté disponible)
 
 Es posible ver las operaciones del SDK implementadas en la clase TransactionController,
-la cual esta en 
-`
-REPO_ROOT/app/Http/Controllers/Transaction.php
-`
+la cual esta en [Transaction.php](./app/Http/Controllers/Transaction.php)
 
-Asimismo, es posible ver la utilización del SDK de JavaScript en el archivo 
-`
-REPO_ROOT/public/js/use-onepay.js
-`
+Asimismo, es posible ver la utilización del SDK de JavaScript en el archivo [use-onepay.js](./public/js/use-onepay.js)
 
 El proyecto incluye, en su raíz, un archivo .env con valores para `ONEPAY_SHARED_SECRET`  y `ONEPAY_API_KEY`, los cuales son útiles para poder hacer pruebas.
 
