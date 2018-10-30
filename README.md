@@ -70,3 +70,9 @@ Este simulador apunta al ambiente de Prueba que puede ser configurado siguiendo 
 6. Las respuestas **PRE_AUTHORIZED** y **PRE_AUTHORIZED 3 Cuotas** terminaran el flujo simulando un pago exitoso por parte del usuario.
 
 7. Al terminar el pago exitosamente, serás redirigido en tu aplicación al detalle de la compra realizada.
+
+# Desarrollo
+
+## Actualizar sdk js
+
+Editar el archivo `transbank-sdk-php-onepay-example/resources/views/index.blade.php` y cambiar la versión de `merchant.onepay.min.js`
