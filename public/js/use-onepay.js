@@ -66,7 +66,8 @@ function doCheckout() {
     var options = {
         endpoint: '/api/transaction',
         commerceLogo: 'https://cdn.rawgit.com/TransbankDevelopers/transbank-sdk-php-onepay-example/014ea5c2/public/images/icons/logo-01.png',
-        callbackUrl: '/commit'
+        callbackUrl: '/commit',
+        transactionDescription: 'Descripción de prueba de la compra'
     };
 
     Onepay.checkout(options);
