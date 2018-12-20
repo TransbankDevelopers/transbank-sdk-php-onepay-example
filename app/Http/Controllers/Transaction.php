@@ -20,6 +20,9 @@ class TransactionController extends Controller
        $jsonData = json_decode('{"items":[{"amount":36000,"quantity": 1,"description":"Fresh Strawberries"},{"amount":16000,"quantity":1,"description":"Lightweight Jacket"}]}', true);
        $shoppingCart = ShoppingCart::fromJSON($jsonData);
 
+       OnepayBase::setCommerceLogoUrl(
+           'https://cdn.rawgit.com/TransbankDevelopers/transbank-sdk-php-onepay-example/014ea5c2/public/images/icons/logo-01.png');
+
        # If OnepayBase::setApiKey() and/or Onepay::setSharedSecret()
        # haven't been called, the SDK will take the values from the
        # ONEPAY_API_KEY and ONEPAY_SHARED_SECRET environment variables
