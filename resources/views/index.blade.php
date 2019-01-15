@@ -517,7 +517,7 @@
 <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <!--===============================================================================================-->
 <script src="js/main.js"></script>
-<script src="https://unpkg.com/transbank-onepay-frontend-sdk@1.5/lib/merchant.onepay.min.js"></script>
+<script src="https://unpkg.com/transbank-onepay-frontend-sdk@1/lib/merchant.onepay.min.js"></script>
 <script src="js/use-onepay.js"></script>
 
 <div>
